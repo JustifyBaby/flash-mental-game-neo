@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>フラッシュ暗算ゲーム</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+      }
+      #number {
+        font-size: 36px;
+        margin: 20px;
+      }
+      #result {
+        font-size: 24px;
+        color: red;
+        margin: 10px;
+      }
+      #score {
+        margin: 10px;
+        font-size: 18px;
+      }
+      #startBtn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 18px;
+      }
+      #timer {
+        font-size: 20px;
+        margin: 10px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>フラッシュ暗算</h1>
+    <label for="difficulty">難易度:</label>
+    <select id="difficulty">
+      <option value="easy">Easy</option>
+      <option value="normal">Normal</option>
+      <option value="master">Master</option>
+      <option value="lunatic">Lunatic</option>
+    </select>
+    <div id="number"></div>
+    <input
+      type="number"
+      id="answer"
+      placeholder="答えを入力"
+      style="display: none" />
+    <button id="submitAnswer" style="display: none">答える</button>
+    <div id="timer" style="display: none">
+      残り時間: <span id="timeLeft"></span>秒
+    </div>
+    <div id="result"></div>
+    <div id="debug"></div>
+    <div id="score">スコア: 0</div>
+    <button id="startBtn">スタート</button>
+
+    <script src="./quest-data.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
