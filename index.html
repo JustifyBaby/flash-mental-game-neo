@@ -3,61 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <title>フラッシュ暗算ゲーム</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 20px;
-      }
-      #number {
-        font-size: 36px;
-        margin: 20px;
-      }
-      #result {
-        font-size: 24px;
-        color: red;
-        margin: 10px;
-      }
-      #score {
-        margin: 10px;
-        font-size: 18px;
-      }
-      #startBtn {
-        margin-top: 20px;
-        padding: 10px 20px;
-        font-size: 18px;
-      }
-      #timer {
-        font-size: 20px;
-        margin: 10px;
-        color: #555;
-      }
-    </style>
   </head>
-  <body>
-    <h1>フラッシュ暗算</h1>
-    <label for="difficulty">難易度:</label>
-    <select id="difficulty">
-      <option value="easy">Easy</option>
-      <option value="normal">Normal</option>
-      <option value="master">Master</option>
-      <option value="lunatic">Lunatic</option>
-    </select>
-    <div id="number"></div>
-    <input
-      type="number"
-      id="answer"
-      placeholder="答えを入力"
-      style="display: none" />
-    <button id="submitAnswer" style="display: none">答える</button>
-    <div id="timer" style="display: none">
-      残り時間: <span id="timeLeft"></span>秒
-    </div>
-    <div id="result"></div>
-    <div id="debug"></div>
-    <div id="score">スコア: 0</div>
-    <button id="startBtn">スタート</button>
+  <body
+    class="bg-white text-gray-800 flex flex-col items-center justify-between min-h-screen p-4">
+    <header class="text-center mt-4">
+      <h1 class="text-3xl font-bold mb-2">フラッシュ暗算</h1>
+      <label for="difficulty" class="text-base mr-2">難易度:</label>
+      <select id="difficulty" class="p-2 border rounded-md text-base">
+        <option value="easy">Easy</option>
+        <option value="normal">Normal</option>
+        <option value="master">Master</option>
+        <option value="lunatic">Lunatic</option>
+      </select>
+    </header>
+
+    <main
+      class="flex flex-col items-center justify-center flex-grow w-full max-w-md mx-auto">
+      <div
+        id="number"
+        class="text-6xl font-bold my-6 h-20 flex items-center justify-center w-full text-center"></div>
+
+      <input
+        type="number"
+        id="answer"
+        placeholder="答えを入力"
+        class="hidden mt-4 p-3 border rounded-md w-full text-center text-lg" />
+      <button
+        id="submitAnswer"
+        class="hidden mt-2 px-6 py-3 bg-blue-600 text-white rounded-md text-lg hover:bg-blue-700 transition">
+        答える
+      </button>
+
+      <div id="timer" class="hidden mt-4 text-lg text-gray-600">
+        残り時間: <span id="timeLeft" class="font-bold"> </span>秒
+      </div>
+
+      <div id="result" class="text-red-600 text-xl mt-4"></div>
+      <div id="debug" class="mt-2 text-sm text-gray-400"></div>
+      <div id="score" class="text-base mt-2">スコア: 0</div>
+    </main>
+
+    <footer class="mb-6">
+      <button
+        id="startBtn"
+        class="px-8 py-3 bg-green-600 text-white rounded-md text-lg hover:bg-green-700 transition">
+        スタート
+      </button>
+    </footer>
 
     <script src="./quest-data.js"></script>
     <script src="./script.js"></script>
